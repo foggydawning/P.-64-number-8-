@@ -1,10 +1,12 @@
-def sort_kamnem (list, last):
+def sort_kamnem (list, last, per=1):
     if -1>=last:
         list.reverse()
+        print("Количество перестановок при методе 'камня' =", per)
         return
     i=list.index(max(list[0:last+1]))
     list.append(list[i])
     list.pop(i)
+    per+=1
     sort_kamnem (list, last-1)
 
 def sort_puzir (list, first=0):
