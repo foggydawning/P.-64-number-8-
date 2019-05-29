@@ -1,4 +1,3 @@
-
 def sort_kamnem (list):
     if len (list)==1:
         return list
@@ -14,7 +13,6 @@ def sort_kamnem (list):
         list.insert(0,li[k])
 
     return(list)
-
 
 def sort_puzir (list):
     if len(list)==1:
@@ -34,3 +32,25 @@ def sort_puzir (list):
         list.append(li[k])
 
     return list
+
+def quicksort (list, min, max):
+    if min>=max:
+        return
+
+    i=min
+    j=max
+    pivot = list[(j-i)//2+i]
+
+    if i<=j:
+        while list[i]<pivot and j!=i:
+            i+=1
+        while list[j]>pivot and j!=i:
+            j-=1
+
+        if i <= j:
+            list[i], list[j]=list[j], list[i]
+            i+=1
+            j-=1
+            sort ( list, min, j )
+            sort ( list, i, max )
+            
