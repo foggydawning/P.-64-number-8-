@@ -9,8 +9,9 @@ def sort_kamnem (list, last, per=1):
     per+=1
     sort_kamnem (list, last-1)
 
-def sort_puzir (list, first=0):
+def sort_puzir (list, first=0,per=0):
     if first==len(list):
+        print("Количество перестановок при использовании метода 'пузырька' =", per)
         return
 
     i=len(list)-1
@@ -18,6 +19,7 @@ def sort_puzir (list, first=0):
     while i>0:
         if list[i]<list[i-1]:
             list[i] , list [i-1] = list [i-1], list[i]
+            per+=1
         i-=1
 
     sort_puzir (list, first+1)
