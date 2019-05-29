@@ -7,8 +7,8 @@ def sort_kamnem (list, last):
     list.pop(i)
     sort_kamnem (list, last-1)
 
-def sort_puzir (list, first):
-    if first==len(list)
+def sort_puzir (list, first=0):
+    if first==len(list):
         return
 
     i=len(list)-1
