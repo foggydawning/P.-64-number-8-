@@ -1,18 +1,11 @@
-def sort_kamnem (list):
-    if len (list)==1:
-        return list
-
-    i=list.index(max(list))
+def sort_kamnem (list, last):
+    if -1>=last:
+        list.reverse()
+        return
+    i=list.index(max(list[0:last+1]))
     list.append(list[i])
     list.pop(i)
-
-    li = sort (list[0:-1])
-    del list[0:len(li)]
-
-    for k in range (len(li)-1, -1, -1):
-        list.insert(0,li[k])
-
-    return(list)
+    sort_kamnem (list, last-1)
 
 def sort_puzir (list):
     if len(list)==1:
@@ -53,4 +46,3 @@ def quicksort (list, min, max):
             j-=1
             sort ( list, min, j )
             sort ( list, i, max )
-            
