@@ -7,7 +7,7 @@ def sort_kamnem (list, last, per=1):
     list.append(list[i])
     list.pop(i)
     per+=1
-    sort_kamnem (list, last-1)
+    sort_kamnem (list, last-1,per)
 
 def sort_puzir (list, first=0,per=0):
     if first==len(list):
@@ -22,7 +22,7 @@ def sort_puzir (list, first=0,per=0):
             per+=1
         i-=1
 
-    sort_puzir (list, first+1)
+    sort_puzir (list, first+1,per)
 
 s=[0]
 def quicksort (list, min, max,s):
@@ -41,9 +41,21 @@ def quicksort (list, min, max,s):
 
         if i <= j:
             list[i], list[j]=list[j], list[i]
-            print("!")
-            s[0]+=1
+            if i!=j:
+                s[0]+=1
             i+=1
             j-=1
             quicksort ( list, min, j,s)
             quicksort ( list, i, max,s)
+a=[]
+
+a_1=a.copy()
+a_2=a.copy()
+a_3=a.copy()
+
+sort_kamnem (a_1,len(a_1)-1)
+
+sort_puzir (a_2)
+
+quicksort (a_3, 0, len(a_3)-1,s)
+print("Количество перестановок при использовании метода 'быстрой сортировки Хоара' =",s[0])
