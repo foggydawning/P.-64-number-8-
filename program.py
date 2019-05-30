@@ -24,10 +24,10 @@ def sort_puzir (list, first=0,per=0):
 
     sort_puzir (list, first+1)
 
-def quicksort (list, min, max, per=0):
+s=[0]
+def quicksort (list, min, max,s):
     if min>=max:
-        print("Количество перестановок при использовании метода 'быстрой сортировки Хоара' =", per)
-        return per
+        return
 
     i=min
     j=max
@@ -41,8 +41,9 @@ def quicksort (list, min, max, per=0):
 
         if i <= j:
             list[i], list[j]=list[j], list[i]
-            per+=1
+            print("!")
+            s[0]+=1
             i+=1
             j-=1
-            quicksort ( list, min, j, per )
-            quicksort ( list, i, max, per  )
+            quicksort ( list, min, j,s)
+            quicksort ( list, i, max,s)
