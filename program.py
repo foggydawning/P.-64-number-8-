@@ -24,7 +24,8 @@ def sort_puzir (list, first=0,per=0):
 
     sort_puzir (list, first+1)
 
-def quicksort (list, min, max):
+s=[0]
+def quicksort (list, min, max,s):
     if min>=max:
         return
 
@@ -40,7 +41,9 @@ def quicksort (list, min, max):
 
         if i <= j:
             list[i], list[j]=list[j], list[i]
+            print("!")
+            s[0]+=1
             i+=1
             j-=1
-            sort ( list, min, j )
-            sort ( list, i, max )
+            quicksort ( list, min, j,s)
+            quicksort ( list, i, max,s)
